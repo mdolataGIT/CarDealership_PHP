@@ -11,9 +11,9 @@ use core\Utils;
  *
  * @author Przemysław Kudłacik
  */
-class CarsCtrl {
+class CarCtrl {
     
-    public function action_showCars() {
+    public function action_showCar() {
         // 1 Pobrac parametry
         
         $marka = "bmw";
