@@ -25,4 +25,10 @@ class HelloCtrl {
         
     }
     
-}
+    public function action_nopermission() {
+        session_destroy();
+        echo "brak";
+        
+    }
+    
+} 

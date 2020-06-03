@@ -26,6 +26,10 @@ class CarCtrl {
         
                 
         //2 walidacja
+        
+        
+        
+        
         //3 dzialanie
         
         //3.1 zapis do bd
