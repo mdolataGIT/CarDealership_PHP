@@ -3,67 +3,68 @@
 namespace app\controllers;
 
 use core\App;
-use core\Message;
+//use core\Message; ///?
 use core\Utils;
+use core\ParamUtils;
+use app\forms\CarSearchForm; ///////////zrobix
 
-/**
- * HelloWorld built in Amelia - sample controller
- *
- * @author Przemysław Kudłacik
- */
 class CarCtrl {
     
+    private $form;
+    private $records;
+    
+    public function _construct() {
+        $this->form = new CarSearchForm();
+    }
+    
+    public function validate() {
+        // 1. sprawdzenie, czy parametry zostały przekazane
+        // - nie trzeba sprawdzać
+     //   $this->form->marka = ParamUtils::getFromRequest('sf_marka');
+
+        // 2. sprawdzenie poprawności przekazanych parametrów
+        // - nie trzeba sprawdzać
+
+        return !App::getMessages()->isError();
+    }
+ 
     public function action_showCar() {
-        // 1 Pobrac parametry
+        $this->validate();
+
         
-        $marka = "bmw";
-        $model = "seria 3";
-        $rejstracja = "2008-12-01";
-        $pojemnosc = 3000;
-        $moc = 250;
-        $opis = "Dobre auto";
-        $bezwypadkowy = 1;
-        
-                
-        //2 walidacja
-        
-        
-        
-        
-        //3 dzialanie
-        
-        //3.1 zapis do bd
-        
-        App::getDB()->insert("samochod", [
-            "marka"=>$marka,
-            "model"=>$model,
-            "rejstracja"=>$rejstracja,
-            "pojemnosc"=>$pojemnosc,
-            "moc"=>$moc,
-            "opis"=>$opis,
-            "bezwypadkowy"=>$bezwypadkowy
-        
-        ]);
-        
-        // 3.2 odczyt z bd
-        
-        $samochody= App::getDB()->select("samochod","*");
-        
-        //4 wyglad widoku
-  
-        echo '<table cellpadding = "10">';
-        foreach ($samochody as $wiersz){
-            echo"<tr>";
-            echo"<td>".$wiersz["marka"]."</td>";
-            echo"<td>".$wiersz["model"]."</td>";
-            echo"<td>".$wiersz["rejstracja"]."</td>";
-            echo"<td>".$wiersz["pojemnosc"]."</td>";
-            echo"<td>".$wiersz["moc"]."</td>";
-            echo"<td>".$wiersz["bezwypadkowy"]."</td>";
-            echo"<td>".$wiersz["opis"]."</td>";
-            echo"</tr>";
+        $search_params = []; 
+        if (isset($this->form->marka) && strlen($this->form->marka) > 0) {
+            $search_params['marka[~]'] = $this->form->marka . '%'; 
         }
-        echo"</table";
+        
+        $num_params = sizeof($search_params);
+        if ($num_params > 1) {
+            $where = ["AND" => &$search_params];
+        } else {
+            $where = &$search_params;
+        }
+        $where ["ORDER"] = "marka";
+        
+         try {
+            $this->records = App::getDB()->select("samochod", [
+                "idsamochod",
+                "marka",
+                "model",
+                "rejstracja",
+                "pojemnosc",
+                "moc",
+                "opis",
+                "bezwypadkowy"
+                    ], $where);
+        } catch (\PDOException $e) {
+            Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
+            if (App::getConf()->debug)
+                Utils::addErrorMessage($e->getMessage());
+        }
+        App::getSmarty()->assign('searchForm', $this->form); // dane formularza (wyszukiwania w tym wypadku)
+        App::getSmarty()->assign('Cars', $this->records);  // lista rekordów z bazy danych
+        App::getSmarty()->display('Car.tpl');
+    
     }
     
 }
