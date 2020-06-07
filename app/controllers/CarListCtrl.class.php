@@ -18,7 +18,7 @@ class CarListCtrl {
 
     public function validate() {
 
-        $this->form->nazwa = ParamUtils::getFromRequest('sf_marka');
+        $this->form->marka = ParamUtils::getFromRequest('sf_marka');
         return !App::getMessages()->isError();
     }
 

@@ -131,6 +131,7 @@ class CarEditCtrl {
                             "pojemnosc" => $this->form->pojemnosc,
                             "moc" => $this->form->moc,
                             "bezwypadkowy" => $this->form->bezwypadkowy,
+                            "rodzajpaliwa" => $this->form->rodzajpaliwa,
                             "opis" => $this->form->opis
                         ]);                 
                 } else {
@@ -141,6 +142,7 @@ class CarEditCtrl {
                             "pojemnosc" => $this->form->pojemnosc,
                             "moc" => $this->form->moc,
                             "bezwypadkowy" => $this->form->bezwypadkowy,
+                            "rodzajpaliwa" => $this->form->rodzajpaliwa,
                             "opis" => $this->form->opis
                             ], [
                         "idsamochod" => $this->form->id

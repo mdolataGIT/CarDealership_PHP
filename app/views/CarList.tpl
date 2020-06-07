@@ -20,7 +20,7 @@
 <a class="button-success pure-button" href="{$conf->action_root}carNew">+ Nowy samochod</a>
 </div>	
 
-<table id="tab_people" class="pure-table pure-table-bordered">
+<table id="tab_samochod" class="pure-table pure-table-bordered">
 <thead>
 	<tr>
 		<th>marka</th>

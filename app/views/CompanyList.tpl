@@ -20,7 +20,7 @@
 <a class="button-success pure-button" href="{$conf->action_root}companyNew">+ Nowa firma</a>
 </div>	
 
-<table id="tab_people" class="pure-table pure-table-bordered">
+<table id="tab_firma" class="pure-table pure-table-bordered">
 <thead>
 	<tr>
 		<th>nazwa</th>
