@@ -2,7 +2,7 @@
 
 namespace app\forms;
 
-class PersonSearchForm {
+class CarSearchForm {
 	public $marka;
 } 
 

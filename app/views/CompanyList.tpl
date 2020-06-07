@@ -41,7 +41,9 @@
 		<td>
 			<a class="button-small pure-button button-secondary" href="{$conf->action_url}companyEdit/{$p['idfirma']}">Edytuj</a>
 			&nbsp;
-			<a class="button-small pure-button button-warning" href="{$conf->action_url}companyDelete/{$p['idfirma']}">Usuń</a>
+			<a class="button-small button-error pure-button" href="{$conf->action_url}companyDelete/{$p['idfirma']}">Usuń</a>
+                        &nbsp;
+			<a class="button-small pure-button button-warning" href="{$conf->action_url}carList/{$p['idfirma']}">Wejdź</a>
 		</td>
 	</tr>
 {/strip}

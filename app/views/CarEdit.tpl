@@ -3,12 +3,12 @@
 {block name=top}
 
 <div class="bottom-margin">
-<form action="{$conf->action_root}CarSave" method="post" class="pure-form pure-form-aligned">
+<form action="{$conf->action_root}carSave" method="post" class="pure-form pure-form-aligned">
 	<fieldset>
 		<legend>Dane samochodu</legend>
 		<div class="pure-control-group">
             <label for="marka">marka</label>
-            <input id ="marka" type="text" placeholder="marka" name="marka" value="{$form->marka}">
+            <input id="marka" type="text" placeholder="marka" name="marka" value="{$form->marka}">
         </div>
 		<div class="pure-control-group">
             <label for="model">model</label>
@@ -16,28 +16,31 @@
         </div>
 		<div class="pure-control-group">
             <label for="rejstracja">rejstracja</label>
-            <input id="rejstarcja" type="text" placeholder="rejstracja" name="rejstracja" value="{$form->rejstracja}">
+            <input id="rejstracja" type="text" placeholder="rejstracja" name="rejstracja" value="{$form->rejstracja}">
         </div>
-                <div class="pure-control-group">
+        	<div class="pure-control-group">
             <label for="pojemnosc">pojemnosc</label>
             <input id="pojemnosc" type="text" placeholder="pojemnosc" name="pojemnosc" value="{$form->pojemnosc}">
         </div>
-                <div class="pure-control-group">
+        	<div class="pure-control-group">
             <label for="moc">moc</label>
             <input id="moc" type="text" placeholder="moc" name="moc" value="{$form->moc}">
         </div>
-                <div class="pure-control-group">
-            <label for="opis">opis</label>
-            <input id="opis" type="opis" placeholder="opis" name="opis" value="{$form->opis}">
-        </div>
-                <div class="pure-control-group">
+        	<div class="pure-control-group">
             <label for="bezwypadkowy">bezwypadkowy</label>
             <input id="bezwypadkowy" type="text" placeholder="bezwypadkowy" name="bezwypadkowy" value="{$form->bezwypadkowy}">
         </div>
-        
+        	<div class="pure-control-group">
+            <label for="rodzajpaliwa">rodzajpaliwa</label>
+            <input id="rodzajpaliwa" type="text" placeholder="rodzajpaliwa" name="rodzajpaliwa" value="{$form->rodzajpaliwa}">
+        </div>
+        	<div class="pure-control-group">
+            <label for="opis">opis</label>
+            <input id="opis" type="text" placeholder="opis" name="opis" value="{$form->opis}">
+        </div>
 		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
-			<a class="pure-button button-secondary" href="{$conf->action_root}personList">Powrót</a>
+			<a class="pure-button button-secondary" href="{$conf->action_root}carList">Powrót</a>
 		</div>
 	</fieldset>
     <input type="hidden" name="id" value="{$form->id}">

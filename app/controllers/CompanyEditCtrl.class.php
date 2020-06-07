@@ -40,7 +40,7 @@ class CompanyEditCtrl {
             Utils::addErrorMessage('Wprowadź adres');
         }
         if (empty(trim($this->form->arch))) {
-            Utils::addErrorMessage('czy arch');
+            Utils::addErrorMessage('Czy obiekt archiwalny?');
         }
         if (App::getMessages()->isError())
             return false;
@@ -122,22 +122,13 @@ class CompanyEditCtrl {
             try {
 
                 //2.1 Nowy rekord
-                if ($this->form->id == '') {
-                    //sprawdź liczebność rekordów - nie pozwalaj przekroczyć 20
-                    $count = App::getDB()->count("firma");
-                    if ($count <= 20) {
+                if ($this->form->id == '') {              
                         App::getDB()->insert("firma", [
                             "nazwa" => $this->form->nazwa,
                             "miejscowosc" => $this->form->miejscowosc,
                             "adres" => $this->form->adres,
                             "arch" => $this->form->arch
-                        ]);
-                    } else { //za dużo rekordów
-                        // Gdy za dużo rekordów to pozostań na stronie
-                        Utils::addInfoMessage('Ograniczenie: Zbyt dużo rekordów. Aby dodać nowy usuń wybrany wpis.');
-                        $this->generateView(); //pozostań na stronie edycji
-                        exit(); //zakończ przetwarzanie, aby nie dodać wiadomości o pomyślnym zapisie danych
-                    }
+                        ]);                 
                 } else {
                     //2.2 Edycja rekordu o danym ID
                     App::getDB()->update("firma", [
