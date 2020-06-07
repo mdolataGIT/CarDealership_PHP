@@ -44,14 +44,14 @@ class CompanyEditCtrl {
         }
         if (App::getMessages()->isError())
             return false;
-
-        // 2. sprawdzenie poprawności przekazanych parametrów
-/*
-        $d = \DateTime::createFromFormat('Y-m-d', $this->form->birthdate);
-        if ($d === false) {
-            Utils::addErrorMessage('Zły format daty. Przykład: 2015-12-20');
-        }
-*/
+        
+        $v = new Validator();
+        $a = $v->validateFromRequest("arch", [
+        'int' => true,
+        'min'=>0,
+        'max'=>1,
+        'validator_message' => 'Pole arch musi być z zakresu 0-1',
+        ]);
         return !App::getMessages()->isError();
     }
 

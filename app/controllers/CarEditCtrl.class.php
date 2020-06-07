@@ -59,11 +59,35 @@ class CarEditCtrl {
         if (App::getMessages()->isError())
             return false;
 
-
+        
+        $v = new Validator();
+        
         $d = \DateTime::createFromFormat('Y-m-d', $this->form->rejstracja);
         if ($d === false) {
-            Utils::addErrorMessage('Zły format daty. Przykład: 2010-10-10');
+            Utils::addErrorMessage('Zły format daty w polu rejstracja. Przykład: 2010-10-10');
         }
+        
+        $m = $v->validateFromRequest("moc", [
+        'int' => true,
+        'validator_message' => 'Moc musi być liczbą całkowitą',
+        ]);
+        
+        $p = $v->validateFromRequest("pojemnosc", [
+        'int' => true,
+        'validator_message' => 'Pojemność musi być liczbą całkowitą',
+        ]);
+        
+        $b = $v->validateFromRequest("bezwypadkowy", [
+        'int' => true,
+        'min'=>0,
+        'max'=>1,
+        'validator_message' => 'Pole bezwypadkowy musi być z zakresu 0-1',
+        ]);
+        
+        $o = $v->validateFromRequest("opis", [
+        'max_length'=>255,
+        'validator_message' => 'Pojemność musi być liczbą całkowitą',
+        ]);
 
         return !App::getMessages()->isError();
     }
