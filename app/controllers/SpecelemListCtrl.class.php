@@ -5,29 +5,29 @@ namespace app\controllers;
 use core\App;
 use core\Utils;
 use core\ParamUtils;
-use app\forms\CarSearchForm;
+use app\forms\SpecelemSearchForm;
 
-class CarListCtrl {
+class SpecelemListCtrl {
 
     private $form;
     private $records;
 
     public function __construct() {
-        $this->form = new CarSearchForm();
+        $this->form = new SpecelemSearchForm();
     }
 
     public function validate() {
 
-        $this->form->marka = ParamUtils::getFromRequest('sf_marka');
+        $this->form->nazwa = ParamUtils::getFromRequest('sf_nazwa');
         return !App::getMessages()->isError();
     }
 
-    public function action_carList() {
+    public function action_specelemList() {
         $this->validate();
 
         $search_params = []; 
-        if (isset($this->form->marka) && strlen($this->form->marka) > 0) {
-            $search_params['marka[~]'] = $this->form->marka . '%';
+        if (isset($this->form->nazwa) && strlen($this->form->nazwa) > 0) {
+            $search_params['nazwa[~]'] = $this->form->nazwa . '%';
         }
 
 
@@ -37,19 +37,13 @@ class CarListCtrl {
         } else {
             $where = &$search_params;
         }
-        $where ["ORDER"] = "marka";
+        $where ["ORDER"] = "nazwa";
 
         try {
-        $this->records = App::getDB()->select("samochod",["[>]firma"=>"idfirma"], [
-                "idsamochod",
-                "marka",
-                "model",
-                "rejstracja",
-                "pojemnosc",
-                "moc",
-                "bezwypadkowy",
-                "rodzajpaliwa",
-                "opis"
+        $this->records = App::getDB()->select("spec_elem", [
+                "idspec_elem",
+                "nazwa",
+                "typ"
                     ],$where);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');
@@ -58,8 +52,8 @@ class CarListCtrl {
         }
 
         App::getSmarty()->assign('searchForm', $this->form);
-        App::getSmarty()->assign('samochod', $this->records);
-        App::getSmarty()->display('CarList.tpl');
+        App::getSmarty()->assign('spec_elem', $this->records);
+        App::getSmarty()->display('SpecelemList.tpl');
     }
 
 }

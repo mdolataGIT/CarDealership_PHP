@@ -23,9 +23,17 @@ Utils::addRoute('companyEdit',    'CompanyEditCtrl',["admin", "user"]);
 Utils::addRoute('companySave',    'CompanyEditCtrl',["admin", "user"]);
 Utils::addRoute('companyDelete',  'CompanyEditCtrl',["admin"]);
 
+Utils::addRoute('specelemList',    'SpecelemListCtrl');
+Utils::addRoute('specelemNew',     'SpecelemEditCtrl',["admin", "user"]);
+Utils::addRoute('specelemEdit',    'SpecelemEditCtrl',["admin", "user"]);
+Utils::addRoute('specelemSave',    'SpecelemEditCtrl',["admin", "user"]);
+Utils::addRoute('specelemDelete',  'SpecelemEditCtrl',["admin"]);
 
-Utils::addRoute('showSpecelem', 'SpecelemCtrl');
-Utils::addRoute('showUser', 'UserCtrl');
-Utils::addRoute('showCoustomer', 'CoustomerCtrl');
+Utils::addRoute('specList',    'SpecListCtrl');
+Utils::addRoute('specNew',     'SpecEditCtrl',["admin", "user"]);
+Utils::addRoute('specEdit',    'SpecEditCtrl',["admin", "user"]);
+Utils::addRoute('specSave',    'SpecEditCtrl',["admin", "user"]);
+Utils::addRoute('specDelete',  'SpecEditCtrl',["admin"]);
+
+Utils::addRoute('coustomerList',    'CoustomerListCtrl');// Czy potrzebne
 Utils::addRoute('showPhoto', 'PhotoCtrl');// NAPRAWIĆ
-Utils::addRoute('showSpec', 'SpecCtrl');

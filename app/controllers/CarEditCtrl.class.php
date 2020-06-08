@@ -17,7 +17,6 @@ class CarEditCtrl {
     }
 
     public function validateSave() {
-        //0. Pobranie parametrów z walidacją
         $this->form->id = ParamUtils::getFromRequest('id', true, 'Błędne wywołanie aplikacji');
         $this->form->marka = ParamUtils::getFromRequest('marka', true, 'Błędne wywołanie aplikacji');
         $this->form->model = ParamUtils::getFromRequest('model', true, 'Błędne wywołanie aplikacji');
