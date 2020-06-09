@@ -45,9 +45,6 @@ class CarEditCtrl {
         if (empty(trim($this->form->moc))) {
             Utils::addErrorMessage('Wprowadz moc');
         }
-        if (empty(trim($this->form->bezwypadkowy))) {
-            Utils::addErrorMessage('Czy bezwypadkowy?');
-        }
         if (empty(trim($this->form->rodzajpaliwa))) {
             Utils::addErrorMessage('Wprowadz rodzaj paliwa');
         }

@@ -39,9 +39,6 @@ class CompanyEditCtrl {
         if (empty(trim($this->form->adres))) {
             Utils::addErrorMessage('Wprowadź adres');
         }
-        if (empty(trim($this->form->arch))) {
-            Utils::addErrorMessage('Czy obiekt archiwalny?');
-        }
         if (App::getMessages()->isError())
             return false;
         
