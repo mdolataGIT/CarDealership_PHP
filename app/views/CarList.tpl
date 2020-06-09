@@ -51,7 +51,7 @@
 			&nbsp;
 			<a class="button-small button-error pure-button" href="{$conf->action_url}carDelete/{$p['idsamochod']}">Usuń</a>
                         &nbsp;
-			<a class="button-small pure-button button-warning" href="{$conf->action_url}carEdit/{$p['idsamochod']}">Wejdź</a>
+			<a class="button-small pure-button button-warning" href="{$conf->action_url}specList/{$p['idsamochod']}">Wejdź</a>
 		</td>
 	</tr>
 {/strip}

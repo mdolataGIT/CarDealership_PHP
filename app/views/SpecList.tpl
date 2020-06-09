@@ -20,7 +20,7 @@
 <a class="button-success pure-button" href="{$conf->action_root}specNew">+ Nowa wartość</a>
 </div>	
 
-<table id="tab_samochod" class="pure-table pure-table-bordered">
+<table id="tab_specyfikacja" class="pure-table pure-table-bordered">
 <thead>
 	<tr>
 		<th>wartość</th>

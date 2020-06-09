@@ -20,7 +20,7 @@
 <a class="button-success pure-button" href="{$conf->action_root}specelemNew">+ Nowy element specyfikacji</a>
 </div>	
 
-<table id="tab_samochod" class="pure-table pure-table-bordered">
+<table id="tab_spec_elem" class="pure-table pure-table-bordered">
 <thead>
 	<tr>
 		<th>nazwa</th>
