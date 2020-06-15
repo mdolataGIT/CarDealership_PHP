@@ -12,4 +12,5 @@ class CarEditForm {
         public $bezwypadkowy;
         public $rodzajpaliwa;
         public $opis;
+        public $idfirma;
 }

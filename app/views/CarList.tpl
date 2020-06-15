@@ -31,6 +31,7 @@
                 <th>bezwypadkowy</th>
                 <th>rodzajpaliwa</th>
                 <th>opis</th>
+                <th>firma</th>
 		<th>opcje</th>
 	</tr>
 </thead>
@@ -46,6 +47,7 @@
                 <td>{$p["bezwypadkowy"]}</td>
                 <td>{$p["rodzajpaliwa"]}</td>
                 <td>{$p["opis"]}</td>
+                <td>{$p["nazwa"]}</td>
 		<td>
 			<a class="button-small pure-button button-secondary" href="{$conf->action_url}carEdit/{$p['idsamochod']}">Edytuj</a>
 			&nbsp;

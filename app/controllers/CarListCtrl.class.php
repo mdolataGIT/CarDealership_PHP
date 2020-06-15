@@ -18,7 +18,7 @@ class CarListCtrl {
 
     public function validate() {
 
-        $this->form->marka = ParamUtils::getFromRequest('sf_marka');
+        $this->form->marka = ParamUtils::getFromRequest('sf_marka');//pobierxz id firmy , jak nie to redirect na glowna 
         return !App::getMessages()->isError();
     }
 
@@ -30,6 +30,7 @@ class CarListCtrl {
             $search_params['marka[~]'] = $this->form->marka . '%';
         }
 
+       // $search_params['idfirma']=$this->idfirma;
 
         $num_params = sizeof($search_params);
         if ($num_params > 1) {
@@ -49,7 +50,8 @@ class CarListCtrl {
                 "moc",
                 "bezwypadkowy",
                 "rodzajpaliwa",
-                "opis"
+                "opis",
+                "firma.nazwa"
                     ],$where);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');

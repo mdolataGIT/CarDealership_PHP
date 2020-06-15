@@ -44,6 +44,7 @@
 		</div>
 	</fieldset>
     <input type="hidden" name="id" value="{$form->id}">
+    <input type="hidden" name="idfirma" value="{$form->idfirma}">
 </form>	
 </div>
 
