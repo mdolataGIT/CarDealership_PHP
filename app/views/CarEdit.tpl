@@ -3,7 +3,7 @@
 {block name=top}
 
 <div class="bottom-margin">
-<form action="{$conf->action_root}carSave" method="post" class="pure-form pure-form-aligned">
+<form action="{$conf->action_root}carSave/{$companyId}" method="post" class="pure-form pure-form-aligned">
 	<fieldset>
 		<legend>Dane samochodu</legend>
 		<div class="pure-control-group">

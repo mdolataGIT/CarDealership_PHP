@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-10 10:34:57
+/* Smarty version 3.1.34-dev-7, created on 2020-06-18 09:59:54
   from 'D:\xpp\Nowy folder\htdocs\Projekt_Maciej_Dolata_komis\app\views\CarList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ee09b313e08e0_54657358',
+  'unifunc' => 'content_5eeb1efaebd5b7_85785118',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e635ba693073d84fdbd2c20ea11550a5882fbed' => 
     array (
       0 => 'D:\\xpp\\Nowy folder\\htdocs\\Projekt_Maciej_Dolata_komis\\app\\views\\CarList.tpl',
-      1 => 1591778057,
+      1 => 1592466794,
       2 => 'file',
     ),
   ),
@@ -20,31 +20,31 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ee09b313e08e0_54657358 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eeb1efaebd5b7_85785118 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15153967345ee09b3135dc67_05679521', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1731170085eeb1efae28fa8_86543383', 'top');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10681227165ee09b31371079_18545723', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13614024245eeb1efae41622_17309719', 'bottom');
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_15153967345ee09b3135dc67_05679521 extends Smarty_Internal_Block
+class Block_1731170085eeb1efae28fa8_86543383 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_15153967345ee09b3135dc67_05679521',
+    0 => 'Block_1731170085eeb1efae28fa8_86543383',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -53,7 +53,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 <div class="bottom-margin">
 <form class="pure-form pure-form-stacked" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-carList">
+carList/<?php echo $_smarty_tpl->tpl_vars['companyId']->value;?>
+">
 	<legend>Opcje wyszukiwania</legend>
 	<fieldset>
 		<input type="text" placeholder="marka" name="sf_marka" value="<?php echo $_smarty_tpl->tpl_vars['searchForm']->value->marka;?>
@@ -68,12 +69,12 @@ carList">
 }
 /* {/block 'top'} */
 /* {block 'bottom'} */
-class Block_10681227165ee09b31371079_18545723 extends Smarty_Internal_Block
+class Block_13614024245eeb1efae41622_17309719 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bottom' => 
   array (
-    0 => 'Block_10681227165ee09b31371079_18545723',
+    0 => 'Block_13614024245eeb1efae41622_17309719',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -82,7 +83,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 <div class="bottom-margin">
 <a class="button-success pure-button" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-carNew">+ Nowy samochod</a>
+carNew/<?php echo $_smarty_tpl->tpl_vars['companyId']->value;?>
+">+ Nowy samochod</a>
 </div>	
 
 <table id="tab_samochod" class="pure-table pure-table-bordered">

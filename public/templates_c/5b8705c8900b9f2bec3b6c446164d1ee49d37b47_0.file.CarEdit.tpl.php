@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-10 10:45:31
+/* Smarty version 3.1.34-dev-7, created on 2020-06-18 10:00:07
   from 'D:\xpp\Nowy folder\htdocs\Projekt_Maciej_Dolata_komis\app\views\CarEdit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5ee09dabd6bef7_53719525',
+  'unifunc' => 'content_5eeb1f07ec6100_24170823',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5b8705c8900b9f2bec3b6c446164d1ee49d37b47' => 
     array (
       0 => 'D:\\xpp\\Nowy folder\\htdocs\\Projekt_Maciej_Dolata_komis\\app\\views\\CarEdit.tpl',
-      1 => 1591778524,
+      1 => 1592467043,
       2 => 'file',
     ),
   ),
@@ -20,23 +20,23 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ee09dabd6bef7_53719525 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eeb1f07ec6100_24170823 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7726124385ee09dabd21294_81691694', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17508586875eeb1f07e79b20_33370173', 'top');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_7726124385ee09dabd21294_81691694 extends Smarty_Internal_Block
+class Block_17508586875eeb1f07e79b20_33370173 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_7726124385ee09dabd21294_81691694',
+    0 => 'Block_17508586875eeb1f07e79b20_33370173',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -45,7 +45,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 <div class="bottom-margin">
 <form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-carSave" method="post" class="pure-form pure-form-aligned">
+carSave/<?php echo $_smarty_tpl->tpl_vars['companyId']->value;?>
+" method="post" class="pure-form pure-form-aligned">
 	<fieldset>
 		<legend>Dane samochodu</legend>
 		<div class="pure-control-group">

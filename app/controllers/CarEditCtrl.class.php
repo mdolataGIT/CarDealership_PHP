@@ -94,7 +94,8 @@ class CarEditCtrl {
     }
 
     public function action_carNew() {
-        $this->generateView();
+        $companyId = (int) ParamUtils::getFromCleanURL(1);
+        $this->generateView($companyId);
     }
 
     public function action_carEdit() {
@@ -112,6 +113,7 @@ class CarEditCtrl {
                 $this->form->bezwypadkowy = $record['bezwypadkowy'];
                 $this->form->rodzajpaliwa = $record['rodzajpaliwa'];
                 $this->form->opis = $record['opis'];
+                $this->form->idfirma = $record['idfirma'];
                 
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
@@ -119,7 +121,7 @@ class CarEditCtrl {
                     Utils::addErrorMessage($e->getMessage());
             }
         }
-        $this->generateView();
+        $this->generateView($record['idfirma']);
     }
 
     public function action_carDelete() {
@@ -141,6 +143,8 @@ class CarEditCtrl {
     }
 
     public function action_carSave() {
+        $companyId = (int) ParamUtils::getFromCleanURL(1);       
+
         if ($this->validateSave()) {
             try {
                 if ($this->form->id == '') {              
@@ -152,7 +156,8 @@ class CarEditCtrl {
                             "moc" => $this->form->moc,
                             "bezwypadkowy" => $this->form->bezwypadkowy,
                             "rodzajpaliwa" => $this->form->rodzajpaliwa,
-                            "opis" => $this->form->opis
+                            "opis" => $this->form->opis,
+                            "idfirma" => $companyId
                         ]);                 
                 } else {
                     App::getDB()->update("samochod", [
@@ -163,7 +168,7 @@ class CarEditCtrl {
                             "moc" => $this->form->moc,
                             "bezwypadkowy" => $this->form->bezwypadkowy,
                             "rodzajpaliwa" => $this->form->rodzajpaliwa,
-                            "opis" => $this->form->opis
+                            "opis" => $this->form->opis,
                             ], [
                         "idsamochod" => $this->form->id
                     ]);
@@ -177,11 +182,12 @@ class CarEditCtrl {
 
             App::getRouter()->forwardTo('carList');
         } else {
-            $this->generateView();
+            $this->generateView($companyId);
         }
     }
 
-    public function generateView() {
+    public function generateView($companyId) { 
+        App::getSmarty()->assign("companyId",$companyId);
         App::getSmarty()->assign('form', $this->form);
         App::getSmarty()->display('CarEdit.tpl');
     }

@@ -82,6 +82,10 @@ class CompanyEditCtrl {
         if ($this->validateEdit()) {
 
             try {
+                App::getDB()->delete("samochod",[
+                    "idfirma" => $this->form->id
+                ]);
+                
                 App::getDB()->delete("firma", [
                     "idfirma" => $this->form->id
                 ]);
