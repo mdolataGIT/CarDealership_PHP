@@ -20,7 +20,7 @@
         </div>
         	<div class="pure-control-group">
             <label for="arch">arch</label>
-            <input id="arch" type="text" placeholder="arch" name="arch" value="{$form->arch}">
+            <input id="arch" type="checkbox" name="arch" value="1" {if $form->arch}checked="checked"{/if}>
         </div>
 		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>

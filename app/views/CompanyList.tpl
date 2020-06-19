@@ -37,7 +37,7 @@
 		<td>{$p["nazwa"]}</td>
 		<td>{$p["miejscowosc"]}</td>
 		<td>{$p["adres"]}</td>
-                <td>{$p["arch"]}</td>
+                <td>{if $p["arch"]}tak{else} nie {/if}</td>
 		<td>
 			<a class="button-small pure-button button-secondary" href="{$conf->action_url}companyEdit/{$p['idfirma']}">Edytuj</a>
 			&nbsp;

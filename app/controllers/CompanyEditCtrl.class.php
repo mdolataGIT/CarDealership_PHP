@@ -21,7 +21,7 @@ class CompanyEditCtrl {
         $this->form->nazwa = ParamUtils::getFromRequest('nazwa', true, 'Błędne wywołanie aplikacji');
         $this->form->miejscowosc = ParamUtils::getFromRequest('miejscowosc', true, 'Błędne wywołanie aplikacji');
         $this->form->adres = ParamUtils::getFromRequest('adres', true, 'Błędne wywołanie aplikacji');
-        $this->form->arch = ParamUtils::getFromRequest('arch', true, 'Błędne wywołanie aplikacji');
+        $this->form->arch = ParamUtils::getFromRequest('arch', false) ?? "0";
 
         if (App::getMessages()->isError())
             return false;
