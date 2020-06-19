@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-18 09:59:54
+/* Smarty version 3.1.34-dev-7, created on 2020-06-19 11:27:45
   from 'D:\xpp\Nowy folder\htdocs\Projekt_Maciej_Dolata_komis\app\views\CarList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5eeb1efaebd5b7_85785118',
+  'unifunc' => 'content_5eec851140ed30_59620186',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '7e635ba693073d84fdbd2c20ea11550a5882fbed' => 
     array (
       0 => 'D:\\xpp\\Nowy folder\\htdocs\\Projekt_Maciej_Dolata_komis\\app\\views\\CarList.tpl',
-      1 => 1592466794,
+      1 => 1592558860,
       2 => 'file',
     ),
   ),
@@ -20,31 +20,31 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eeb1efaebd5b7_85785118 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eec851140ed30_59620186 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1731170085eeb1efae28fa8_86543383', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2456745755eec8511375d19_76064662', 'top');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13614024245eeb1efae41622_17309719', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_9225701905eec851138c164_33746230', 'bottom');
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_1731170085eeb1efae28fa8_86543383 extends Smarty_Internal_Block
+class Block_2456745755eec8511375d19_76064662 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_1731170085eeb1efae28fa8_86543383',
+    0 => 'Block_2456745755eec8511375d19_76064662',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -69,12 +69,12 @@ carList/<?php echo $_smarty_tpl->tpl_vars['companyId']->value;?>
 }
 /* {/block 'top'} */
 /* {block 'bottom'} */
-class Block_13614024245eeb1efae41622_17309719 extends Smarty_Internal_Block
+class Block_9225701905eec851138c164_33746230 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bottom' => 
   array (
-    0 => 'Block_13614024245eeb1efae41622_17309719',
+    0 => 'Block_9225701905eec851138c164_33746230',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -113,14 +113,14 @@ foreach ($_from as $_smarty_tpl->tpl_vars['p']->value) {
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["rejstracja"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["pojemnosc"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["moc"];?>
-</td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["bezwypadkowy"];?>
-</td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["rodzajpaliwa"];?>
+</td><td><?php if ($_smarty_tpl->tpl_vars['p']->value["bezwypadkowy"]) {?>tak<?php } else { ?> nie <?php }?></td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["rodzajpaliwa"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["opis"];?>
 </td><td><?php echo $_smarty_tpl->tpl_vars['p']->value["nazwa"];?>
 </td><td><a class="button-small pure-button button-secondary" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 carEdit/<?php echo $_smarty_tpl->tpl_vars['p']->value['idsamochod'];?>
 ">Edytuj</a>&nbsp;<a class="button-small button-error pure-button" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
-carDelete/<?php echo $_smarty_tpl->tpl_vars['p']->value['idsamochod'];?>
+carDelete/<?php echo $_smarty_tpl->tpl_vars['p']->value['idfirma'];?>
+/<?php echo $_smarty_tpl->tpl_vars['p']->value['idsamochod'];?>
 ">Usuń</a>&nbsp;<a class="button-small pure-button button-warning" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 specList/<?php echo $_smarty_tpl->tpl_vars['p']->value['idsamochod'];?>
 ">Wejdź</a></td></tr>

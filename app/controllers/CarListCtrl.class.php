@@ -53,7 +53,8 @@ class CarListCtrl {
                 "bezwypadkowy",
                 "rodzajpaliwa",
                 "opis",
-                "firma.nazwa"
+                "firma.nazwa",
+                "firma.idfirma"
                     ],$where);
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania rekordów');

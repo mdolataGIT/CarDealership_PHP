@@ -3,7 +3,7 @@
 namespace app\forms;
 
 class SpecEditForm {
-	public $id;
-	public $wartosc;
+	public $carId;
+	public $specElem;
 
 }

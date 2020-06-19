@@ -28,7 +28,7 @@
         </div>
         	<div class="pure-control-group">
             <label for="bezwypadkowy">bezwypadkowy</label>
-            <input id="bezwypadkowy" type="text" placeholder="bezwypadkowy" name="bezwypadkowy" value="{$form->bezwypadkowy}">
+            <input id="bezwypadkowy" type="checkbox" name="bezwypadkowy" value="1" {if $form->bezwypadkowy}checked="checked"{/if}>
         </div>
         	<div class="pure-control-group">
             <label for="rodzajpaliwa">rodzajpaliwa</label>
@@ -40,7 +40,7 @@
         </div>
 		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
-			<a class="pure-button button-secondary" href="{$conf->action_root}carList">Powrót</a>
+			<a class="pure-button button-secondary" href="{$conf->action_root}carList/{$companyId}">Powrót</a>
 		</div>
 	</fieldset>
     <input type="hidden" name="id" value="{$form->id}">

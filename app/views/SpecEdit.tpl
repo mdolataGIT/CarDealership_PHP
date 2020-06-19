@@ -3,19 +3,21 @@
 {block name=top}
 
 <div class="bottom-margin">
-<form action="{$conf->action_root}specSave" method="post" class="pure-form pure-form-aligned">
+<form action="{$conf->action_root}specSave/{$form->carId}" method="post" class="pure-form pure-form-aligned">
 	<fieldset>
 		<legend>Wartość specyfikacji</legend>
-		<div class="pure-control-group">
-            <label for="wartosc">wartosc</label>
-            <input id="wartosc" type="text" placeholder="wartosc" name="wartosc" value="{$form->wartosc}">
-        </div>
+                {foreach $records as $r}
+                    <div class="pure-control-group">      
+                        <label for="spec_elem_{$r['idspec_elem']}">{$r['nazwa']}</label>
+                        <input id="spec_elem_{$r['idspec_elem']}" type="text" placeholder="{$r['typ']}" name="spec_elem[{$r['idspec_elem']}]">
+                    </div>
+                {/foreach}
 		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
-			<a class="pure-button button-secondary" href="{$conf->action_root}companyList">Powrót</a>
+			<a class="pure-button button-secondary" href="{$conf->action_root}specList/{$form->carId}">Powrót</a>
 		</div>
 	</fieldset>
-    <input type="hidden" name="id" value="{$form->id}">
+    <input type="hidden" name="idsamochod" value="{$form->carId}">
 </form>	
 </div>
 

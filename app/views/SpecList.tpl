@@ -17,28 +17,23 @@
 {block name=bottom}
 
 <div class="bottom-margin">
-<a class="button-success pure-button" href="{$conf->action_root}specNew">+ Nowa wartość</a>
+<a class="button-success pure-button" href="{$conf->action_root}specNew/{$carId}">+ Edytuj wartości</a>
 </div>	
 
 <table id="tab_specyfikacja" class="pure-table pure-table-bordered">
 <thead>
 	<tr>
+                <th>nazwa</th>
 		<th>wartość</th>
-		<th>opcje</th>
 	</tr>
 </thead>
 <tbody>
 {foreach $specyfikacja as $p}
 {strip}
 	<tr>
-		<td>{$p["wartosc"]}</td>
-		<td>
-			<a class="button-small pure-button button-secondary" href="{$conf->action_url}specEdit/{$p['idspecyfikacja']}">Edytuj</a>
-			&nbsp;
-			<a class="button-small button-error pure-button" href="{$conf->action_url}specDelete/{$p['idspecyfikacja']}">Usuń</a>
-                        &nbsp;
-			<a class="button-small pure-button button-warning" href="{$conf->action_url}specEdit/{$p['idspecyfikacja']}">Wejdź</a>
-		</td>
+		<td>{$p["nazwa"]}</td>
+                <td>{$p["wartosc"]}</td>
+		
 	</tr>
 {/strip}
 {/foreach}

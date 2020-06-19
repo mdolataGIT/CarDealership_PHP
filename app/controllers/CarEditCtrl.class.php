@@ -23,7 +23,7 @@ class CarEditCtrl {
         $this->form->rejstracja = ParamUtils::getFromRequest('rejstracja', true, 'Błędne wywołanie aplikacji');
         $this->form->pojemnosc = ParamUtils::getFromRequest('pojemnosc', true, 'Błędne wywołanie aplikacji');
         $this->form->moc = ParamUtils::getFromRequest('moc', true, 'Błędne wywołanie aplikacji');
-        $this->form->bezwypadkowy = ParamUtils::getFromRequest('bezwypadkowy', true, 'Błędne wywołanie aplikacji');
+        $this->form->bezwypadkowy = ParamUtils::getFromRequest('bezwypadkowy', false) ?? "0";
         $this->form->rodzajpaliwa = ParamUtils::getFromRequest('rodzajpaliwa', true, 'Błędne wywołanie aplikacji');
         $this->form->opis = ParamUtils::getFromRequest('opis', true, 'Błędne wywołanie aplikacji');
         
@@ -92,7 +92,13 @@ class CarEditCtrl {
         $this->form->id = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
         return !App::getMessages()->isError();
     }
-
+    
+    public function validateDelete() {
+        $this->form->id = ParamUtils::getFromCleanURL(2, true, 'Błędne wywołanie aplikacji');
+        $this->form->idfirma = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
+        return !App::getMessages()->isError();
+    }    
+    
     public function action_carNew() {
         $companyId = (int) ParamUtils::getFromCleanURL(1);
         $this->generateView($companyId);
@@ -125,7 +131,7 @@ class CarEditCtrl {
     }
 
     public function action_carDelete() {
-        if ($this->validateEdit()) {
+        if ($this->validateDelete()) {
 
             try {
                 App::getDB()->delete("samochod", [
@@ -139,7 +145,7 @@ class CarEditCtrl {
             }
         }
 
-        App::getRouter()->forwardTo('carList');
+        App::getRouter()->redirectTo('carList/'.$this->form->idfirma);
     }
 
     public function action_carSave() {

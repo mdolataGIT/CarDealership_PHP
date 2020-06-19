@@ -44,14 +44,14 @@
 		<td>{$p["rejstracja"]}</td>
                 <td>{$p["pojemnosc"]}</td>
                 <td>{$p["moc"]}</td>
-                <td>{$p["bezwypadkowy"]}</td>
+                <td>{if $p["bezwypadkowy"]}tak{else} nie {/if}</td>
                 <td>{$p["rodzajpaliwa"]}</td>
                 <td>{$p["opis"]}</td>
                 <td>{$p["nazwa"]}</td>
 		<td>
 			<a class="button-small pure-button button-secondary" href="{$conf->action_url}carEdit/{$p['idsamochod']}">Edytuj</a>
 			&nbsp;
-			<a class="button-small button-error pure-button" href="{$conf->action_url}carDelete/{$p['idsamochod']}">Usuń</a>
+			<a class="button-small button-error pure-button" href="{$conf->action_url}carDelete/{$p['idfirma']}/{$p['idsamochod']}">Usuń</a>
                         &nbsp;
 			<a class="button-small pure-button button-warning" href="{$conf->action_url}specList/{$p['idsamochod']}">Wejdź</a>
 		</td>
