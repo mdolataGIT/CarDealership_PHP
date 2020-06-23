@@ -20,6 +20,7 @@ class SpecelemEditCtrl {
         $this->form->id = ParamUtils::getFromRequest('id', true, 'Błędne wywołanie aplikacji');
         $this->form->nazwa = ParamUtils::getFromRequest('nazwa', true, 'Błędne wywołanie aplikacji');
         $this->form->typ = ParamUtils::getFromRequest('typ', true, 'Błędne wywołanie aplikacji');
+        $this->form->carId = ParamUtils::getFromRequest('carId', true, 'Błędne wywołanie aplikacji');
         
         if (App::getMessages()->isError())
             return false;
@@ -45,9 +46,10 @@ class SpecelemEditCtrl {
     }
 
     public function action_specelemNew() {
-        $this->generateView();
+        $carId = (int) ParamUtils::getFromCleanURL(1);
+        $this->generateView($carId);
     }
-
+    
     public function action_specelemEdit() {
         if ($this->validateEdit()) {
             try {
@@ -108,13 +110,14 @@ class SpecelemEditCtrl {
                     Utils::addErrorMessage($e->getMessage());
             }
 
-            App::getRouter()->forwardTo('specelemList');
+            App::getRouter()->redirectTo('specList/'.$this->form->carId);
         } else {
             $this->generateView();
         }
     }
 
-    public function generateView() {
+    public function generateView($carId) {
+        App::getSmarty()->assign('carId', $carId);
         App::getSmarty()->assign('form', $this->form);
         App::getSmarty()->display('SpecelemEdit.tpl');
     }

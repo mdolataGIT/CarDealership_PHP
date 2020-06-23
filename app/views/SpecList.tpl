@@ -17,7 +17,8 @@
 {block name=bottom}
 
 <div class="bottom-margin">
-<a class="button-success pure-button" href="{$conf->action_root}specNew/{$carId}">+ Edytuj wartości</a>
+<a class="button-success pure-button" href="{$conf->action_root}specelemNew/{$carId}">+ Nowy element</a>
+<a class="button-secondary pure-button" href="{$conf->action_root}specNew/{$carId}">Edytuj</a>
 </div>	
 
 <table id="tab_specyfikacja" class="pure-table pure-table-bordered">
