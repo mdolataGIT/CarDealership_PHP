@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-20 01:04:21
+/* Smarty version 3.1.34-dev-7, created on 2020-06-24 19:42:30
   from 'D:\xpp\Nowy folder\htdocs\Projekt_Maciej_Dolata_komis\app\views\CompanyEdit.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5eed447509bc28_22852110',
+  'unifunc' => 'content_5ef3908600a489_56593913',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '99756b0b1e24fe919cf770a1c84cd2fcc140c027' => 
     array (
       0 => 'D:\\xpp\\Nowy folder\\htdocs\\Projekt_Maciej_Dolata_komis\\app\\views\\CompanyEdit.tpl',
-      1 => 1592607851,
+      1 => 1593020516,
       2 => 'file',
     ),
   ),
@@ -20,23 +20,23 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eed447509bc28_22852110 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ef3908600a489_56593913 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17497979995eed447506c0a2_72379935', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16940852915ef39085f00261_04313844', 'top');
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_17497979995eed447506c0a2_72379935 extends Smarty_Internal_Block
+class Block_16940852915ef39085f00261_04313844 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_17497979995eed447506c0a2_72379935',
+    0 => 'Block_16940852915ef39085f00261_04313844',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -54,7 +54,7 @@ companySave" method="post" class="pure-form pure-form-aligned">
 ">
         </div>
 		<div class="pure-control-group">
-            <label for="miejscowosc">miejscowosc</label>
+            <label for="miejscowosc">miejscowość</label>
             <input id="miejscowosc" type="text" placeholder="miejscowosc" name="miejscowosc" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->miejscowosc;?>
 ">
         </div>

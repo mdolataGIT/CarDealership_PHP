@@ -38,9 +38,17 @@ class PhotoEditCtrl {
         $this->form->id = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
         return !App::getMessages()->isError();
     }
-
+    
+    public function validateDelete() {
+        $this->form->id = ParamUtils::getFromCleanURL(2, true, 'Błędne wywołanie aplikacji');
+        $this->form->idsamochod = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
+        return !App::getMessages()->isError();
+    }
+    
     public function action_photoNew() {
-        $this->generateView();
+        $carId = (int) ParamUtils::getFromCleanURL(1);
+        $this->generateView($carId);
+        
     }
 
     public function action_photoEdit() {
@@ -51,6 +59,7 @@ class PhotoEditCtrl {
                 ]);
                 $this->form->id = $record['idzdjecie'];
                 $this->form->url = $record['url'];
+                $this->form->idsamochod = $record['idsamochod'];
                 
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
@@ -58,10 +67,11 @@ class PhotoEditCtrl {
                     Utils::addErrorMessage($e->getMessage());
             }
         }
-        $this->generateView();
+        $this->generateView($record['idsamochod']);
     }
 
     public function action_photoDelete() {
+        $carId = (int) ParamUtils::getFromCleanURL(2);
         if ($this->validateEdit()) {
 
             try {
@@ -76,15 +86,17 @@ class PhotoEditCtrl {
             }
         }
 
-        App::getRouter()->forwardTo('photoList');
+        App::getRouter()->redirectTo('photoList/'.$carId);
     }
 
     public function action_photoSave() {
+         $carId = (int) ParamUtils::getFromCleanURL(1);
         if ($this->validateSave()) {
             try {
                 if ($this->form->id == '') {              
                         App::getDB()->insert("zdjecie", [
                             "url" => $this->form->url,
+                            "idsamochod"=>$carId
                         ]);                 
                 } else {
                     App::getDB()->update("zdjecie", [
@@ -102,11 +114,12 @@ class PhotoEditCtrl {
 
             App::getRouter()->forwardTo('photoList');
         } else {
-            $this->generateView();
+            $this->generateView($carId);
         }
     }
 
-    public function generateView() {
+    public function generateView($carId) {
+        App::getSmarty()->assign("carId",$carId);
         App::getSmarty()->assign('form', $this->form);
         App::getSmarty()->display('PhotoEdit.tpl');
     }

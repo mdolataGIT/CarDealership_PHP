@@ -18,6 +18,7 @@
 
 <div class="bottom-margin">
 <a class="button-success pure-button" href="{$conf->action_root}carNew/{$companyId}">+ Nowy samochod</a>
+<a class="button-warning pure-button" href="{$conf->action_root}companyList">Powrót</a>
 </div>	
 
 <table id="tab_samochod" class="pure-table pure-table-bordered">
@@ -26,10 +27,10 @@
 		<th>marka</th>
 		<th>model</th>
 		<th>rejstracja</th>
-                <th>pojemnosc</th>
+                <th>pojemność</th>
                 <th>moc</th>
                 <th>bezwypadkowy</th>
-                <th>rodzajpaliwa</th>
+                <th>rodzaj paliwa</th>
                 <th>opis</th>
                 <th>firma</th>
 		<th>opcje</th>
@@ -53,7 +54,9 @@
 			&nbsp;
 			<a class="button-small button-error pure-button" href="{$conf->action_url}carDelete/{$p['idfirma']}/{$p['idsamochod']}">Usuń</a>
                         &nbsp;
-			<a class="button-small pure-button button-warning" href="{$conf->action_url}specList/{$p['idsamochod']}">Wejdź</a>
+                        <a class="button-small pure-button button-success" href="{$conf->action_url}photoList/{$p['idsamochod']}">Zdjęcia</a>
+			&nbsp;
+			<a class="button-small pure-button button-warning" href="{$conf->action_url}specList/{$p['idsamochod']}">Specyfikacja</a>
 		</td>
 	</tr>
 {/strip}

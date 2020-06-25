@@ -24,7 +24,7 @@
 <thead>
 	<tr>
 		<th>nazwa</th>
-		<th>miejscowosc</th>
+		<th>miejscowość</th>
 		<th>adres</th>
                 <th>arch</th>
 		<th>opcje</th>

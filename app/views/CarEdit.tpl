@@ -19,7 +19,7 @@
             <input id="rejstracja" type="text" placeholder="rejstracja" name="rejstracja" value="{$form->rejstracja}">
         </div>
         	<div class="pure-control-group">
-            <label for="pojemnosc">pojemnosc</label>
+            <label for="pojemnosc">pojemność</label>
             <input id="pojemnosc" type="text" placeholder="pojemnosc" name="pojemnosc" value="{$form->pojemnosc}">
         </div>
         	<div class="pure-control-group">
@@ -31,7 +31,7 @@
             <input id="bezwypadkowy" type="checkbox" name="bezwypadkowy" value="1" {if $form->bezwypadkowy}checked="checked"{/if}>
         </div>
         	<div class="pure-control-group">
-            <label for="rodzajpaliwa">rodzajpaliwa</label>
+            <label for="rodzajpaliwa">rodzaj paliwa</label>
             <input id="rodzajpaliwa" type="text" placeholder="rodzajpaliwa" name="rodzajpaliwa" value="{$form->rodzajpaliwa}">
         </div>
         	<div class="pure-control-group">

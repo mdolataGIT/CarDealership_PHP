@@ -11,7 +11,7 @@
             <input id="nazwa" type="text" placeholder="nazwa" name="nazwa" value="{$form->nazwa}">
         </div>
 		<div class="pure-control-group">
-            <label for="miejscowosc">miejscowosc</label>
+            <label for="miejscowosc">miejscowość</label>
             <input id="miejscowosc" type="text" placeholder="miejscowosc" name="miejscowosc" value="{$form->miejscowosc}">
         </div>
 		<div class="pure-control-group">

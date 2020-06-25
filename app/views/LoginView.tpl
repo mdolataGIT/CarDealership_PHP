@@ -9,7 +9,7 @@
 			<input id="id_login" type="text" name="login" value="{$form->login}"/>
 		</div>
         <div class="pure-control-group">
-			<label for="id_pass">pass: </label>
+			<label for="id_pass">hasło: </label>
 			<input id="id_pass" type="password" name="pass" /><br />
 		</div>
 		<div class="pure-controls">

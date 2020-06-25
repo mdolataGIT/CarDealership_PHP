@@ -3,7 +3,7 @@
 {block name=top}
 
 <div class="bottom-margin">
-<form action="{$conf->action_root}photoSave" method="post" class="pure-form pure-form-aligned">
+<form action="{$conf->action_root}photoSave/{$carId}" method="post" class="pure-form pure-form-aligned">
 	<fieldset>
 		<legend>Wartość specyfikacji</legend>
 		<div class="pure-control-group">
@@ -12,10 +12,11 @@
         </div>
 		<div class="pure-controls">
 			<input type="submit" class="pure-button pure-button-primary" value="Zapisz"/>
-			<a class="pure-button button-secondary" href="{$conf->action_root}photoList">Powrót</a>
+			<a class="pure-button button-secondary" href="{$conf->action_root}photoList/{$carId}">Powrót</a>
 		</div>
 	</fieldset>
     <input type="hidden" name="id" value="{$form->id}">
+    <input type="hidden" name="idsamochod" value="{$form->idsamochod}">
 </form>	
 </div>
 

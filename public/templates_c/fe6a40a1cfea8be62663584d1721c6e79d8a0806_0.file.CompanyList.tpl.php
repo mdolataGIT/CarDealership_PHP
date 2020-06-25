@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-06-20 01:04:44
+/* Smarty version 3.1.34-dev-7, created on 2020-06-24 19:42:26
   from 'D:\xpp\Nowy folder\htdocs\Projekt_Maciej_Dolata_komis\app\views\CompanyList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5eed448cdcc223_00358487',
+  'unifunc' => 'content_5ef3908224f5e6_91615925',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fe6a40a1cfea8be62663584d1721c6e79d8a0806' => 
     array (
       0 => 'D:\\xpp\\Nowy folder\\htdocs\\Projekt_Maciej_Dolata_komis\\app\\views\\CompanyList.tpl',
-      1 => 1592607883,
+      1 => 1593020533,
       2 => 'file',
     ),
   ),
@@ -20,31 +20,31 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eed448cdcc223_00358487 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ef3908224f5e6_91615925 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17629514735eed448cd64163_29928790', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17150488585ef390821d0b63_59615421', 'top');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11137568305eed448cd77622_68210033', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14925781225ef390821e6ca7_49733186', 'bottom');
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'top'} */
-class Block_17629514735eed448cd64163_29928790 extends Smarty_Internal_Block
+class Block_17150488585ef390821d0b63_59615421 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'top' => 
   array (
-    0 => 'Block_17629514735eed448cd64163_29928790',
+    0 => 'Block_17150488585ef390821d0b63_59615421',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -68,12 +68,12 @@ companyList">
 }
 /* {/block 'top'} */
 /* {block 'bottom'} */
-class Block_11137568305eed448cd77622_68210033 extends Smarty_Internal_Block
+class Block_14925781225ef390821e6ca7_49733186 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'bottom' => 
   array (
-    0 => 'Block_11137568305eed448cd77622_68210033',
+    0 => 'Block_14925781225ef390821e6ca7_49733186',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -89,7 +89,7 @@ companyNew">+ Nowa firma</a>
 <thead>
 	<tr>
 		<th>nazwa</th>
-		<th>miejscowosc</th>
+		<th>miejscowość</th>
 		<th>adres</th>
                 <th>arch</th>
 		<th>opcje</th>
