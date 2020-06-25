@@ -7,6 +7,7 @@ use core\Utils;
 use core\ParamUtils;
 use core\Validator;
 use app\forms\SpecEditForm;
+use core\Message;
 
 class SpecEditCtrl {
 
@@ -19,6 +20,31 @@ class SpecEditCtrl {
     public function validateSave() {
         $this->form->carId = ParamUtils::getFromRequest('idsamochod', true, 'Błędne wywołanie aplikacji');
         $this->form->specElem = ParamUtils::getFromRequest('spec_elem', true, 'Błędne wywołanie aplikacji');
+        
+        foreach ($this->form->specElem as $specElemId=> $value){
+            try {
+                $dataType = App::getDB()->get("spec_elem", "typ",[
+                    'idspec_elem'=>$specElemId
+                ]);
+                switch ($dataType){
+                    case 'int':
+                        if(!is_numeric($value)){
+                            App::getMessages()->addMessage(new Message($value.' nie jest typu int', Message::ERROR));
+                        }
+                        break;
+                        
+                    case 'bool':
+                        if(!in_array($value, ["0","1"])){
+                            App::getMessages()->addMessage(new Message($value.' nie jest typu bool', Message::ERROR)); 
+                        }
+                        break;
+                }
+            } catch (\PDOException $e) {
+                Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
+                if (App::getConf()->debug)
+                    Utils::addErrorMessage($e->getMessage());
+            } 
+        }
         
         if (App::getMessages()->isError())
             return false;
@@ -40,16 +66,7 @@ class SpecEditCtrl {
 
     public function action_specNew() {
         $this->validateEdit();
-        try {
-            $records = App::getDB()->select("spec_elem", "*");
-        } catch (\PDOException $e) {
-            Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
-            if (App::getConf()->debug)
-                Utils::addErrorMessage($e->getMessage());
-        }
-        App::getSmarty()->assign('form', $this->form);
-        App::getSmarty()->assign('records', $records);
-        App::getSmarty()->display('SpecEdit.tpl');
+        $this->generateView();
     }
     public function action_specDelete() {
 
@@ -75,8 +92,7 @@ class SpecEditCtrl {
         if ($this->validateSave()) {
             try {
                 App::getDB()->delete('specyfikacja',[
-                    "idsamochod"=>$this->form->carId,
-                    "idspecyfikacja"=>$this->form->specElem
+                    "idsamochod"=>$this->form->carId
                 ]);
                 foreach($this->form->specElem as $specElemId=> $value){
                     App::getDB()->insert('specyfikacja',[
@@ -94,13 +110,20 @@ class SpecEditCtrl {
             
             App::getRouter()->redirectTo('specList/'.$this->form->carId);
         } else {
-            $this->generateView($carId);
-        }
+            $this->generateView();
+        } 
     }
 
     public function generateView() {
-        App::getSmarty()->assign('carId',$carId);
+        try {
+            $records = App::getDB()->select("spec_elem", "*");
+        } catch (\PDOException $e) {
+            Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
+            if (App::getConf()->debug)
+                Utils::addErrorMessage($e->getMessage());
+        }
         App::getSmarty()->assign('form', $this->form);
+        App::getSmarty()->assign('records', $records);
         App::getSmarty()->display('SpecEdit.tpl');
     }
 
